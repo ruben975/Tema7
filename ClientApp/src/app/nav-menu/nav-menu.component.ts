@@ -1,4 +1,4 @@
-import { Component } from 'src/app/movie/node_modules/@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-nav-menu',
