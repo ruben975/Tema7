@@ -1,10 +1,12 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using Tema7.Data;
 
 namespace Tema7
 {
@@ -26,6 +28,9 @@ namespace Tema7
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddDbContext<Tema7Context>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Tema7Context")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
