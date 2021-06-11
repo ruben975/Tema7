@@ -9,7 +9,7 @@ export class MovieComponent {
   public movies: Movie[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    http.get<Movie[]>(baseUrl + 'api/movies').subscribe(result => {
+    http.get<Movie[]>(baseUrl + 'api/movies1').subscribe(result => {
       this.movies = result;
     }, error => console.error(error));
   }
